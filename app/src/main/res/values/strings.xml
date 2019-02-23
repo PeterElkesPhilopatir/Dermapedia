@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Dermapedia</string>
+    <string name="fullname_key">FULL_NAME</string>
+    <string name="email_key">EMAIL</string>
+    <string name="mobile_key">MOBILE</string>
+    <string name="hospital_key">HOSPITAL</string>
+    <string name="university_key">UNIVERSITY</string>
+    <string name="clinic_key">CLINIC_ADDRESS</string>
+    <string name="bdate_key">BIRTH_DATE</string>
+    <string name="gov_key">GOVERNMENT</string>
+    <string name="password_key">PASSWORD</string>
+    <string name="gender_key">GENDER</string>
+
+    <string name="facebook_app_id">2296289060649403</string>
+    <string name="fb_login_protocol_scheme">fb2296289060649403</string>
+    <string name="social_id_key">social_id</string>
+    <string name="social_type_key">social_type</string>
+    <string name="social_image_key">social_image</string>
+    <string name="LOGIN_TYPE">LOGIN_TYPE</string>
+    <string name="social">SOCIAL</string>
+    <string name="manual">MANUAL</string>
+    <string name="display_name_key">display_name</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+</resources>
