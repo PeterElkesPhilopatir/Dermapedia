@@ -7,9 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.meg7.widget.CustomShapeImageView;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -17,7 +21,9 @@ import java.util.ArrayList;
 public class SignupActivity extends AppCompatActivity {
     Spinner genderSpinner;
     EditText fullNameEditText, emailEditText, mobileEditText, hospitalEditTextEditText, universityEditText, clinicAddressEditText, birthdateEditText, governmentEditText, passwordEditText, confirmPasswordEditText;
+    CustomShapeImageView profileView;
     Bundle bundle, oldBundle;
+    boolean socialABoolean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,8 @@ public class SignupActivity extends AppCompatActivity {
 
         bundle = new Bundle();
         oldBundle = getIntent().getExtras();
+
+        socialABoolean = oldBundle.getBoolean(getString(R.string.social));
 
         initControls();
         findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
@@ -78,26 +86,32 @@ public class SignupActivity extends AppCompatActivity {
         governmentEditText = (EditText) findViewById(R.id.edt_government);
         passwordEditText = (EditText) findViewById(R.id.edt_password);
         confirmPasswordEditText = (EditText) findViewById(R.id.edt_conf_password);
-
+        profileView = (CustomShapeImageView) findViewById(R.id.img_profile);
         ArrayList<String> genders = new ArrayList<>();
         genders.add(getString(R.string.male));
         genders.add(getString(R.string.female));
         genderSpinner = (Spinner) findViewById(R.id.spn_gender);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_spinner_item,
-                        genders); //selected item will look like a spinner set from XML
+                        genders);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout
                 .simple_spinner_dropdown_item);
         genderSpinner.setAdapter(spinnerArrayAdapter);
 
-        if (oldBundle.getString(getString(R.string.LOGIN_TYPE)).equals(getString(R.string.social))) {
+        if (socialABoolean) {
             fullNameEditText.setText(oldBundle.getString(getString(R.string.display_name_key)));
-            emailEditText.setText(oldBundle.getString(getString(R.string.email_key)));
+            emailEditText.setText(oldBundle.getString(getString(R.string.social_id_key)));
             bundle.putString(getString(R.string.social_type_key), oldBundle.getString(getString(R.string.social_type_key)));
             bundle.putString(getString(R.string.social_image_key), oldBundle.getString(getString(R.string.social_image_key)));
-            bundle.putString(getString(R.string.LOGIN_TYPE), getString(R.string.social));
+
+            profileView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            Picasso.with(this)
+                    .load(oldBundle.getString(getString(R.string.social_image_key)))
+                    .placeholder(R.drawable.ic_personal)
+                    .into(profileView);
         } else {
-            bundle.putString(getString(R.string.LOGIN_TYPE), getString(R.string.manual));
+            bundle.putBoolean(getString(R.string.social), socialABoolean);
+            profileView.setVisibility(View.GONE);
         }
     }
 

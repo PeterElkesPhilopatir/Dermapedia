@@ -119,7 +119,7 @@ public class UploadImageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (fileUri1 != null && fileUri2 != null && fileUri3 != null && fileUri4 != null)
-                    if (getIntent().getExtras().getString(getString(R.string.LOGIN_TYPE)).equals(getString(R.string.manual)))
+                    if (bundle.getBoolean(getString(R.string.social)))
                         manualRegister();
                     else
                         socialRegister();

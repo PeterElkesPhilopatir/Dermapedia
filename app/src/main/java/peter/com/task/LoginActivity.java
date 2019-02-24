@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString(getString(R.string.LOGIN_TYPE), getString(R.string.manual));
+                bundle.putBoolean(getString(R.string.social), false);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
@@ -201,7 +201,8 @@ public class LoginActivity extends AppCompatActivity {
                                     bundle.putString(getString(R.string.social_id_key), user.getEmail());
                                     bundle.putString(getString(R.string.social_type_key), socialType);
                                     bundle.putString(getString(R.string.social_image_key), user.getPhotoUrl().toString());
-                                    bundle.putString(getString(R.string.LOGIN_TYPE), getString(R.string.social));
+
+                                    bundle.putBoolean(getString(R.string.social), true);
                                     intent.putExtras(bundle);
                                     startActivity(intent);
                                 }

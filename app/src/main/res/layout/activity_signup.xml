@@ -19,67 +19,77 @@
             android:orientation="vertical">
 
 
+
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:src="@drawable/registration_logo" />
+
+            <com.meg7.widget.CustomShapeImageView
+                android:id="@+id/img_profile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_personal"
+                app:shape="circle" />
 
             <EditText
                 android:id="@+id/edt_fullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Full Name" />
+                android:hint="@string/full_name" />
 
             <EditText
                 android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/edt_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Mobile"
+                android:hint="@string/mobile"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/edt_hospital"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Hospital Name" />
+                android:hint="@string/hospital_name" />
 
             <EditText
                 android:id="@+id/edt_univ"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="University" />
+                android:hint="@string/university" />
 
             <EditText
                 android:id="@+id/edt_clinic_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Clinic Address" />
+                android:hint="@string/clinic_address" />
 
             <EditText
                 android:id="@+id/edt_birthdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Birth Date yyyy-mm-dd"
+                android:hint="@string/birth_date_yyyy_mm_dd"
                 android:inputType="date" />
 
             <EditText
                 android:id="@+id/edt_government"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Government" />
+                android:hint="@string/government" />
 
             <EditText
                 android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password"
 
                 android:inputType="textPassword" />
 
@@ -87,33 +97,14 @@
                 android:id="@+id/edt_conf_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirm password"
+                android:hint="@string/confirm_password"
                 android:inputType="textPassword" />
-
-            <!--<RadioGroup-->
-            <!--android:id="@+id/rad_gender"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<RadioButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:checked="true"-->
-            <!--android:text="Male" />-->
-
-            <!--<RadioButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:text="Female" />-->
-            <!--</RadioGroup>-->
-
 
             <Spinner
                 android:id="@+id/spn_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:spinnerMode="dialog" />
 
 
@@ -124,7 +115,8 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:background="@drawable/primary_radius"
-                android:text="Next"
+                android:text="@string/next"
+
                 android:textColor="#fff" />
         </LinearLayout>
 
